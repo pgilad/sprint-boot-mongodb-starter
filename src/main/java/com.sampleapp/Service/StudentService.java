@@ -24,4 +24,12 @@ public class StudentService {
     public Student updateStudentById(int id, Student student) {
         return studentDao.updateStudentById(id, student);
     }
+
+    public void deleteStudentById(int id) {
+        studentDao.deleteStudentById(id);
+    }
+
+    public Student createStudent(Student student) {
+        return studentDao.createStudent(student);
+    }
 }

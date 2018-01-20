@@ -31,6 +31,21 @@ public class StudentDao {
     }
 
     public Student updateStudentById(int id, Student student) {
-        return students.put(id, student);
+        Student s = students.get(id);
+        s.setName(student.getName());
+        s.setCourse(student.getCourse());
+
+        return s;
+    }
+
+    public void deleteStudentById(int id) {
+        students.remove(id);
+    }
+
+    public Student createStudent(Student student) {
+        int id = students.size() + 1;
+        Student s = new Student(id, student.getName(), student.getCourse());
+        students.put(id, s);
+        return s;
     }
 }
