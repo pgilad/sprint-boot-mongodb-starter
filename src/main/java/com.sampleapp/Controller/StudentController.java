@@ -26,18 +26,18 @@ public class StudentController {
     }
 
     @GetMapping(value = "/{id}")
-    public Student getStudentById(@PathVariable int id) {
+    public Student getStudentById(@PathVariable("id") int id) {
         return studentService.getStudentById(id);
     }
 
     @PutMapping(value = "/{id}")
-    public Student updateStudentById(@PathVariable int id, @RequestBody Student student) {
+    public Student updateStudentById(@PathVariable("id") int id, @RequestBody Student student) {
         return studentService.updateStudentById(id, student);
     }
 
     @DeleteMapping(value = "/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteStudentById(@PathVariable int id) {
+    public void deleteStudentById(@PathVariable("id") int id) {
         studentService.deleteStudentById(id);
     }
 }

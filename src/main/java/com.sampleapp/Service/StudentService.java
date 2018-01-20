@@ -1,8 +1,9 @@
 package com.sampleapp.Service;
 
-import com.sampleapp.Dao.StudentDao;
+import com.sampleapp.Dao.FakeStudentDaoImpl;
 import com.sampleapp.Entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -11,7 +12,8 @@ import java.util.Collection;
 public class StudentService {
 
     @Autowired
-    private StudentDao studentDao;
+    @Qualifier("fakeData")
+    private FakeStudentDaoImpl studentDao;
 
     public Collection<Student> getAllStudents() {
         return studentDao.getAllStudents();
