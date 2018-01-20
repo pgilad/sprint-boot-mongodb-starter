@@ -16,9 +16,8 @@ public class StudentDao {
         students = new HashMap<Integer, Student>() {
             {
                 put(1, new Student(1, "A", "CS"));
-                put(2, new Student(1, "B", "CS"));
-                put(3, new Student(1, "C", "CS"));
-
+                put(2, new Student(2, "B", "CS"));
+                put(3, new Student(3, "C", "CS"));
             }
         };
     }

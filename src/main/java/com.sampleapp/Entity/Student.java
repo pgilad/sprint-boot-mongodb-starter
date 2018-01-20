@@ -29,6 +29,9 @@ public class Student {
         this.course = course;
     }
 
+    public Student() {
+    }
+
     public Student(int id, String name, String course) {
         this.id = id;
         this.name = name;
