@@ -1,9 +1,8 @@
 package com.sampleapp.Service;
 
-import com.sampleapp.Dao.FakeStudentDaoImpl;
 import com.sampleapp.Entity.Student;
+import com.sampleapp.Repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -12,26 +11,33 @@ import java.util.Collection;
 public class StudentService {
 
     @Autowired
-    @Qualifier("fakeData")
-    private FakeStudentDaoImpl studentDao;
+    private StudentRepository studentRepository;
 
     public Collection<Student> getAllStudents() {
-        return studentDao.getAllStudents();
+        return studentRepository.findAll();
     }
 
     public Student getStudentById(int id) {
-        return studentDao.getStudentById(id);
+        return studentRepository.findOneById(id);
     }
 
     public Student updateStudentById(int id, Student student) {
-        return studentDao.updateStudentById(id, student);
+        Student s = studentRepository.findOneById(id);
+        if (student.getName() != null) {
+            s.setName(student.getName());
+        }
+        if (student.getCourse() != null) {
+            s.setCourse(student.getCourse());
+        }
+        studentRepository.save(s);
+        return s;
     }
 
     public void deleteStudentById(int id) {
-        studentDao.deleteStudentById(id);
+        studentRepository.deleteOneById(id);
     }
 
     public Student createStudent(Student student) {
-        return studentDao.createStudent(student);
+        return studentRepository.save(student);
     }
 }

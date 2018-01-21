@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Collection;
 
 @RestController
@@ -21,23 +22,24 @@ public class StudentController {
     }
 
     @PostMapping
-    public Student createStudent(@RequestBody Student student) {
+    @ResponseStatus(HttpStatus.CREATED)
+    public Student createStudent(@Valid @RequestBody Student student) {
         return studentService.createStudent(student);
     }
 
     @GetMapping(value = "/{id}")
-    public Student getStudentById(@PathVariable("id") int id) {
+    public Student getStudentById(@PathVariable int id) {
         return studentService.getStudentById(id);
     }
 
     @PutMapping(value = "/{id}")
-    public Student updateStudentById(@PathVariable("id") int id, @RequestBody Student student) {
+    public Student updateStudentById(@PathVariable int id, @Valid @RequestBody Student student) {
         return studentService.updateStudentById(id, student);
     }
 
     @DeleteMapping(value = "/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteStudentById(@PathVariable("id") int id) {
+    public void deleteStudentById(@PathVariable int id) {
         studentService.deleteStudentById(id);
     }
 }

@@ -1,7 +1,15 @@
 package com.sampleapp.Entity;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import javax.validation.constraints.NotNull;
+
+@Document(collection = "students")
 public class Student {
+    @Id
     private int id;
+    @NotNull
     private String name;
     private String course;
 
