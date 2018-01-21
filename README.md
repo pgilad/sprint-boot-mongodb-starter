@@ -1,4 +1,4 @@
-# sprint-boot-demo
+# Spring Boot Demo
 An attempt to create a basic spring boot demo with MongoDB backend
 
 ## Run
