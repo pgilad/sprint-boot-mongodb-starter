@@ -13,15 +13,15 @@ public class StudentService {
     @Autowired
     private StudentRepository studentRepository;
 
-    public Collection<Student> getAllStudents() {
+    public Collection<Student> findAll() {
         return studentRepository.findAll();
     }
 
-    public Student getStudentById(int id) {
+    public Student findOneById(int id) {
         return studentRepository.findOneById(id);
     }
 
-    public Student updateStudentById(int id, Student student) {
+    public Student updateOneById(int id, Student student) {
         Student s = studentRepository.findOneById(id);
         if (student.getName() != null) {
             s.setName(student.getName());
@@ -33,11 +33,13 @@ public class StudentService {
         return s;
     }
 
-    public void deleteStudentById(int id) {
+    public void deleteOneById(int id) {
         studentRepository.deleteOneById(id);
     }
 
-    public Student createStudent(Student student) {
+    public Student save(Student student) {
+        long count = studentRepository.count();
+        student.setId(count);
         return studentRepository.save(student);
     }
 }

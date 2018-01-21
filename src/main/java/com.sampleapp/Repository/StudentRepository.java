@@ -4,7 +4,7 @@ import com.sampleapp.Entity.Student;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface StudentRepository extends MongoRepository<Student, String> {
-    Student findOneById(int id);
+    Student findOneById(long id);
 
-    void deleteOneById(int id);
+    void deleteOneById(long id);
 }

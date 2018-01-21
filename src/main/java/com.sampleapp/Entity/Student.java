@@ -8,16 +8,16 @@ import javax.validation.constraints.NotNull;
 @Document(collection = "students")
 public class Student {
     @Id
-    private int id;
+    private long id;
     @NotNull
     private String name;
     private String course;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
