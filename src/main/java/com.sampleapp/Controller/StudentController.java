@@ -19,18 +19,18 @@ public class StudentController {
     private StudentService studentService;
 
     @GetMapping
-    public Collection<Student> getAllStudents() {
+    public Collection<Student> index() {
         return studentService.findAll();
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Student createStudent(@Valid @RequestBody Student student) {
+    public Student create(@Valid @RequestBody Student student) {
         return studentService.save(student);
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Student> getStudentById(@PathVariable int id) {
+    public ResponseEntity<Student> show(@PathVariable int id) {
         return Optional
                 .ofNullable(studentService.findOneById(id))
                 .map(ResponseEntity::ok)
@@ -38,7 +38,7 @@ public class StudentController {
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<Student> updateStudentById(@PathVariable int id, @Valid @RequestBody Student student) {
+    public ResponseEntity<Student> update(@PathVariable int id, @Valid @RequestBody Student student) {
         return Optional
                 .ofNullable(studentService.findOneById(id))
                 .map(s -> studentService.updateOneById(id, student))
@@ -47,7 +47,7 @@ public class StudentController {
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<?> deleteStudentById(@PathVariable int id) {
+    public ResponseEntity<?> delete(@PathVariable int id) {
         return Optional
                 .ofNullable(studentService.findOneById(id))
                 .map(student -> {
