@@ -14,7 +14,7 @@ apply plugin: 'org.springframework.boot'
 
 jar {
     baseName = 'gs-spring-boot'
-    version =  '0.1.0'
+    version = '0.1.0'
 }
 
 repositories {
@@ -27,5 +27,8 @@ targetCompatibility = 1.8
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-data-mongodb")
+    compile("javax.xml.bind:jaxb-api:2.3.0")
+    compile("io.springfox:springfox-swagger2:2.8.0")
+    compile("io.springfox:springfox-swagger-ui:2.8.0")
     testCompile("junit:junit")
 }
