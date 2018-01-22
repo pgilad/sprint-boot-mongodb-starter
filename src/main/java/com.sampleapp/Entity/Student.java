@@ -1,48 +1,27 @@
 package com.sampleapp.Entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotNull;
 
 @Document(collection = "students")
+@NoArgsConstructor
+@AllArgsConstructor
 public class Student {
     @Id
+    @Getter
+    @Setter
     private long id;
     @NotNull
+    @Getter
+    @Setter
     private String name;
+    @Getter
+    @Setter
     private String course;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getCourse() {
-        return course;
-    }
-
-    public void setCourse(String course) {
-        this.course = course;
-    }
-
-    public Student() {
-    }
-
-    public Student(int id, String name, String course) {
-        this.id = id;
-        this.name = name;
-        this.course = course;
-    }
 }
