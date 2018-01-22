@@ -1,0 +1,12 @@
+version: '3.4'
+services:
+  webapp:
+    build: .
+    ports:
+      - 8080:8080
+    environment:
+      SPRING_DATA_MONGODB_URI: mongodb://db/spring-demo
+  db:
+    image: mongo:3.6.2
+    ports:
+      - 27017
