@@ -7,21 +7,28 @@ An attempt to create a basic spring boot demo with MongoDB backend
 - Gradle 4+
 - MongoDB localhost server
 
+## Use Docker
+
+```bash
+$ docker build -t spring-boot-demo .
+$ docker run --rm spring-boot-demo
+```
+
 ## Run
 
-```sh
+```bash
 $ ./gradlew bootRun
 ```
 
 ## Build
 
-```sh
+```bash
 $ ./gradlew build
 ```
 
 ## Run
 
-```
+```bash
 $ java -jar build/libs/gs-spring-boot-0.1.0.jar
 ```
 
