@@ -12,16 +12,12 @@ import javax.validation.constraints.NotNull;
 @Document(collection = "students")
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 public class Student {
     @Id
-    @Getter
-    @Setter
     private long id;
     @NotNull
-    @Getter
-    @Setter
     private String name;
-    @Getter
-    @Setter
     private String course;
 }
