@@ -1,5 +1,5 @@
-# Spring Boot Demo
-> An attempt to create a basic spring boot demo with MongoDB backend
+# Spring Boot MongoDB Starter
+> A starter kit for Spring Boot with MongoDB Backend
 
 See MVP of:
 1. Spring Boot
