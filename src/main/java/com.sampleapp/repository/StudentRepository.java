@@ -1,6 +1,6 @@
-package com.sampleapp.Repository;
+package com.sampleapp.repository;
 
-import com.sampleapp.Entity.Student;
+import com.sampleapp.entity.Student;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface StudentRepository extends MongoRepository<Student, String> {

@@ -1,7 +1,7 @@
-package com.sampleapp.Service;
+package com.sampleapp.service;
 
-import com.sampleapp.Entity.Student;
-import com.sampleapp.Repository.StudentRepository;
+import com.sampleapp.entity.Student;
+import com.sampleapp.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

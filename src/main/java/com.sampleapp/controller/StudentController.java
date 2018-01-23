@@ -1,7 +1,7 @@
-package com.sampleapp.Controller;
+package com.sampleapp.controller;
 
-import com.sampleapp.Entity.Student;
-import com.sampleapp.Service.StudentService;
+import com.sampleapp.entity.Student;
+import com.sampleapp.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
