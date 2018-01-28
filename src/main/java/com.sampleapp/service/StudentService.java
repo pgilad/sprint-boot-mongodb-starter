@@ -14,32 +14,32 @@ public class StudentService {
     private StudentRepository studentRepository;
 
     public Collection<Student> findAll() {
-        return studentRepository.findAll();
+        return this.studentRepository.findAll();
     }
 
     public Student findOneById(int id) {
-        return studentRepository.findOneById(id);
+        return this.studentRepository.findOneById(id);
     }
 
     public Student updateOneById(int id, Student student) {
-        Student s = studentRepository.findOneById(id);
+        Student s = this.studentRepository.findOneById(id);
         if (student.getName() != null) {
             s.setName(student.getName());
         }
         if (student.getCourse() != null) {
             s.setCourse(student.getCourse());
         }
-        studentRepository.save(s);
+        this.studentRepository.save(s);
         return s;
     }
 
     public void deleteOneById(int id) {
-        studentRepository.deleteOneById(id);
+        this.studentRepository.deleteOneById(id);
     }
 
     public Student save(Student student) {
-        long count = studentRepository.count();
+        long count = this.studentRepository.count();
         student.setId(count);
-        return studentRepository.save(student);
+        return this.studentRepository.save(student);
     }
 }

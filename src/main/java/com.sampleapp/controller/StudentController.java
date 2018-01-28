@@ -20,19 +20,19 @@ public class StudentController {
 
     @GetMapping
     public Collection<Student> index() {
-        return studentService.findAll();
+        return this.studentService.findAll();
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Student create(@Valid @RequestBody Student student) {
-        return studentService.save(student);
+        return this.studentService.save(student);
     }
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<Student> show(@PathVariable int id) {
         return Optional
-                .ofNullable(studentService.findOneById(id))
+                .ofNullable(this.studentService.findOneById(id))
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
@@ -40,8 +40,8 @@ public class StudentController {
     @PutMapping(value = "/{id}")
     public ResponseEntity<Student> update(@PathVariable int id, @Valid @RequestBody Student student) {
         return Optional
-                .ofNullable(studentService.findOneById(id))
-                .map(s -> studentService.updateOneById(id, student))
+                .ofNullable(this.studentService.findOneById(id))
+                .map(s -> this.studentService.updateOneById(id, student))
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
@@ -49,9 +49,9 @@ public class StudentController {
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<?> delete(@PathVariable int id) {
         return Optional
-                .ofNullable(studentService.findOneById(id))
+                .ofNullable(this.studentService.findOneById(id))
                 .map(student -> {
-                    studentService.deleteOneById(id);
+                    this.studentService.deleteOneById(id);
                     return ResponseEntity.noContent().build();
                 })
                 .orElse(ResponseEntity.notFound().build());
