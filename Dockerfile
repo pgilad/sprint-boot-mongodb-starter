@@ -13,7 +13,7 @@ RUN ./gradlew build -x :bootRepackage -x test --continue
 COPY src ./src
 RUN ./gradlew build
 
-FROM openjdk:8-jdk-alpine
+FROM openjdk:8-jre-alpine
 WORKDIR /root/
 COPY --from=BUILD_IMAGE /root/dev/app/build/libs/gs-spring-boot-0.1.0.jar .
 EXPOSE 8080

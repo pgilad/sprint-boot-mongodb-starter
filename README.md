@@ -4,7 +4,7 @@
 See MVP of:
 1. Spring Boot
 2. MongoDB
-3. Docker multi-stage build (131MB)
+3. Docker multi-stage build (112MB)
 4. Swagger 2
 5. Lombok
 
